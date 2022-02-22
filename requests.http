@@ -6,8 +6,8 @@ POST http://localhost:3000/messages
 Content-Type: application/json
 
 {
-  "body": "foobar"
+  "body": "new message"
 }
 
 ### Retrieve a message
-GET http://localhost:3000/messages/10
+GET http://localhost:3000/messages/8f86f208-7c7d-4e7c-971c-720f09443c3a

@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Message } from "./messages.type";
 import { MessageService } from './messages.service';
 import { CreateMessageBody } from './messages.validators';
 
@@ -7,20 +8,17 @@ export class MessagesController {
   constructor(private readonly messageService: MessageService) {}
 
   @Get()
-  getMessages(): string[] {
-    return this.messageService.getMessages()
+  async getMessages(): Promise<Message[]> {
+    return this.messageService.getAll()
   }
 
   @Post()
   createMessage(@Body() body: CreateMessageBody) {
-    return body
+    return this.messageService.createOne(body)
   }
 
   @Get('/:id')
   getMessageById(@Param('id') id: string) {
-    return {
-      id,
-      body: 'a test message'
-    }
+    return this.messageService.getById(id)
   }
 }
