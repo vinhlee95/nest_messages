@@ -10,4 +10,4 @@ Content-Type: application/json
 }
 
 ### Retrieve a message
-GET http://localhost:3000/messages/8f86f208-7c7d-4e7c-971c-720f09443c3a
+GET http://localhost:3000/messages/2
